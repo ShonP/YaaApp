@@ -1,0 +1,59 @@
+<ion-content class="login-content" dir="rtl">
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-70>
+      <img src="assets/icon/yaa22.png" />
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box" *ngIf="logreg">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input type="text" text-right placeholder="משתמש" name="email" [(ngModel)]="loginCredentials.userName" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" text-right placeholder="סיסמא" name="password" [(ngModel)]="loginCredentials.password" required></ion-input>
+          </ion-item>
+          <ion-label style="color:red">{{error}}</ion-label>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn" full type="submit" [disabled]="loginCredentials.password===''||loginCredentials.userName===''"
+          (click)="login()">התחבר</button>
+        <button ion-button class="register-btn" block clear (click)="createAccount()">משתמש חדש? הרשם כאן</button>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="login-box" *ngIf="!logreg">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input type="text" text-right placeholder="משתמש" name="email" [(ngModel)]="registerCredentials.userName" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" text-right placeholder="סיסמא" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" text-right placeholder="שם פרטי" name="firstName" [(ngModel)]="registerCredentials.firstName" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" text-right placeholder="שם משפחה" name="lastName" [(ngModel)]="registerCredentials.lastName" required></ion-input>
+          </ion-item>
+          <ion-label style="color:red">{{error}}</ion-label>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn" full type="submit" [disabled]="registerCredentials.password===''||registerCredentials.userName===''||registerCredentials.firstName===''||registerCredentials.lastName===''"
+          (click)="register()">הרשם</button>
+        <button ion-button class="register-btn" block clear (click)="createAccount()">משתמש קיים? התחבר</button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

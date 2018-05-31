@@ -1,0 +1,30 @@
+<!--
+  Generated template for the RequestsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>בקשות</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()">
+        <!-- <span ion-text color="primary" showWhen="ios">ביטול</span> -->
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let r of group.requests">
+      {{r.firstName}} {{r.lastName}}
+      <ion-icon name="checkmark-circle" (click)="respond(r,true)" color="primary" item-end></ion-icon>
+      <ion-icon name="close-circle" color="secondary" (click)="respond(r,false)" item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

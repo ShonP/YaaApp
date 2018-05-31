@@ -1,17 +1,23 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>נכס לאומי</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+    <ion-fab bottom left>
+      <button (click)="presentModal()" ion-fab mini>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+    <ion-fab bottom right>
+      <button (click)="presentSearch()" ion-fab mini>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-fab>
+  <ion-list>
+    <button (click)="EnterGroup(i)" ion-item *ngFor="let i of groups">
+      {{i.name}}
+    </button>
+  </ion-list>
 </ion-content>

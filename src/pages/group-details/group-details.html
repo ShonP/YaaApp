@@ -1,0 +1,90 @@
+<!--
+  Generated template for the GroupDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton>
+    <ion-label (click)='back()' text-left color='primary'>
+      חזור
+    </ion-label>
+    <ion-title>{{group?.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="group!==null&&user!==null">
+  <ion-fab *ngIf="isAdmin(user._id)" bottom left>
+    <button (click)="presentModal()" ion-fab mini>
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-fab *ngIf="isAdmin(user._id)" bottom right>
+    <button (click)="presentRequests()" ion-fab mini>
+      <ion-icon name="people"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-card *ngIf="group.belowGroups.length>0">
+    <ion-card-header>
+      תת קבוצות
+    </ion-card-header>
+    <ion-card-content>
+      <p *ngFor="let i of group.belowGroups" (click)="changeGroup(i._id)">{{i.name}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      חברי הקבוצה
+    </ion-card-header>
+    <ion-card-content>
+      <p *ngFor="let i of group.users" (click)='makeAdmin(i)'>
+        <ion-icon name="contact" *ngIf="isAdmin(i._id)"></ion-icon>
+        {{i.firstName}} {{i.lastName}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card [ngStyle]="!currentReports?.nat?{'display':'none'}:null">
+    <ion-card-header>
+      סה'כ דיווחים
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #doughnutCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf='currentReports?.nat'>
+    <ion-card-header>
+      דיווחים
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item text-wrap *ngFor="let i of currentReports?.reports">
+          {{i.user.firstName}} {{i.user.lastName}}: {{i.message}} כ {{getTimeDiff(currentReports.nat.date,i.timeOfReport)}} דק' לאחר
+          הפעלה
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="!hasReport()">
+        <ion-item>
+          <ion-label fixed>דיווח</ion-label>
+          <ion-input [(ngModel)]="message" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button [disabled]="message===''" (click)='report()' ion-button full>דווח</button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="isAdmin(user._id)&&!currentReports?.nat">
+    <ion-card-header text-wrap>
+      *הפעלת נכס לאומי תפעיל את הנכס הלאומי לקבוצה ולכל התתי קבוצות שמתחתיה
+    </ion-card-header>
+  </ion-card>
+
+  <button *ngIf="isAdmin(user._id)" [disabled]='currentReports?.nat' ion-button full (click)='active()'>
+    <p *ngIf='currentReports?.nat'>נכס לאומי פעיל</p>
+    <p *ngIf='!currentReports?.nat'>הפעל נכס לאומי</p>
+  </button>
+</ion-content>

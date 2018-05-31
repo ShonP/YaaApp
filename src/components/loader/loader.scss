@@ -1,0 +1,56 @@
+.loader {
+  $time: 1.5s;
+  $border-color: skyblue;
+  $secondary-border-color:rgb(165, 40, 40);
+  $radius: 25vw;
+  $border-width: 3vw;
+
+  width: $radius;
+  height: $radius;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: $border-width solid transparent;
+    border-top: $border-width $border-color;
+    border-right-color: $secondary-border-color;
+  }
+
+  &::before {
+    animation: rotate $time linear infinite;
+  }
+
+  &::after {
+    $animationTime: $time * 0.5;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 25%;
+    border-width: $border-width * 0.75;
+    border-right-color: darken($border-color, 35%);
+    transform: translate(-50%, -50%);
+    animation: rotate $animationTime linear infinite;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

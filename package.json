@@ -4,6 +4,9 @@
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
+  "prettier": {
+    "singleQuote": true
+  },
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
@@ -29,7 +32,12 @@
     "ionicons": "3.0.0",
     "rxjs": "5.5.10",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.26"
+    "@ngrx/effects": "^5.2.0",
+    "@ngrx/store": "^5.2.0",
+    "@ngrx/store-devtools": "^5.2.0",
+    "zone.js": "0.8.26",
+    "chart.js": "^2.7.1",
+    "chartjs-plugin-datalabels": "^0.1.0"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.9",
