@@ -1,3 +1,5 @@
 export * from './controllers';
 export * from './functions';
-export const url = 'http://localhost:5222';
+const devUrl = 'http://localhost:5222';
+const prodUrl = 'https://hamamapp.herokuapp.com';
+export const url = prodUrl;

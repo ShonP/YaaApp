@@ -1,20 +1,22 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>נכס לאומי</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-    <ion-fab bottom left>
-      <button (click)="presentModal()" ion-fab mini>
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-fab>
-    <ion-fab bottom right>
-      <button (click)="presentSearch()" ion-fab mini>
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-fab>
+  <ion-fab bottom left>
+    <button (click)="presentModal()" ion-fab mini>
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-fab bottom right>
+    <button (click)="presentSearch()" ion-fab mini>
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-fab>
   <ion-list>
     <button (click)="EnterGroup(i)" ion-item *ngFor="let i of groups">
       {{i.name}}

@@ -7,9 +7,12 @@
 <ion-header>
 
   <ion-navbar hideBackButton>
-    <ion-label (click)='back()' text-left color='primary'>
-      חזור
-    </ion-label>
+    <ion-buttons end>
+      <button ion-button (click)="back()">
+        <!-- <span ion-text color="primary" showWhen="ios">ביטול</span> -->
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>{{group?.name}}</ion-title>
   </ion-navbar>
 

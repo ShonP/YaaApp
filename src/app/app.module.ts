@@ -11,6 +11,7 @@ import { AuthEffects } from './shared/reducers/auth';
 import { GroupEffects } from './shared/reducers/group/group.effects';
 import { reducers, HttpService } from './shared/';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
+import { FCM } from '@ionic-native/fcm';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
@@ -25,7 +26,11 @@ import { CreateGroupPage } from '../pages/create-group/create-group';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { UnitDetailsPage } from '../pages/unit-details/unit-details';
+import { NotebookPage } from '../pages/notebook/notebook';
+import { NotebookNewsoldierPage } from '../pages/notebook-newsoldier/notebook-newsoldier';
+import { PhonebookPage } from '../pages/phonebook/phonebook';
+import { CallNumber } from '@ionic-native/call-number';
 @NgModule({
   declarations: [
     MyApp,
@@ -37,7 +42,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     GroupDetailsPage,
     SearchPage,
-    RequestsPage
+    RequestsPage,
+    UnitDetailsPage,
+    NotebookPage,
+    NotebookNewsoldierPage,
+    PhonebookPage
   ],
   imports: [
     BrowserModule,
@@ -61,9 +70,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CreateGroupPage,
     GroupDetailsPage,
     SearchPage,
-    RequestsPage
+    RequestsPage,
+    UnitDetailsPage,
+    NotebookPage,
+    NotebookNewsoldierPage,
+    PhonebookPage
   ],
   providers: [
+    FCM,
+    CallNumber,
     HttpService,
     StatusBar,
     SplashScreen,

@@ -17,7 +17,7 @@ import * as authActions from '../../app/shared/reducers/auth/auth.actions';
 export class LoginPage implements OnInit {
   logreg = true;
   loading: Loading;
-  loginCredentials = { userName: 'Shon', password: 'Shon' };
+  loginCredentials = { userName: '', password: '' };
   registerCredentials = {
     userName: '',
     firstName: '',
