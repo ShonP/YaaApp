@@ -6,7 +6,7 @@ import {
   ModalController
 } from 'ionic-angular';
 import { NotebookNewsoldierPage } from '../notebook-newsoldier/notebook-newsoldier';
-
+import { GalleryPage } from '../gallery/gallery';
 /**
  * Generated class for the NotebookPage page.
  *
@@ -19,6 +19,8 @@ import { NotebookNewsoldierPage } from '../notebook-newsoldier/notebook-newsoldi
   templateUrl: 'notebook.html'
 })
 export class NotebookPage {
+  quality = ['22old.png', '22old.png', '22old.png'];
+  secure = ['22old.png', '22old.png', '22old.png'];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -26,6 +28,20 @@ export class NotebookPage {
   ) {}
   openNewSoldier() {
     let modal = this._modalCtr.create(NotebookNewsoldierPage);
+    modal.present();
+  }
+  openSecure() {
+    let modal = this._modalCtr.create(GalleryPage, {
+      images: this.secure,
+      name: 'פנקס בטחון'
+    });
+    modal.present();
+  }
+  openQuality() {
+    let modal = this._modalCtr.create(GalleryPage, {
+      images: this.quality,
+      name: 'פנקס איכות'
+    });
     modal.present();
   }
 }

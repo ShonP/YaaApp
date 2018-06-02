@@ -18,7 +18,7 @@ export class MyApp implements OnInit {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = LoginPage;
   loading = false;
-  pages: Array<{ title: string; component: any }>;
+  pages: Array<{ icon?: string; title: string; component: any }>;
   ngOnInit() {
     this._store.select('auth').subscribe(res => {
       if (res.user && res.authenticated) {
@@ -68,10 +68,14 @@ export class MyApp implements OnInit {
       statusBar.styleDefault();
       splashScreen.hide();
       this.pages = [
-        { title: 'על היחידה', component: UnitDetailsPage },
-        { title: 'פק"ל כיסים', component: NotebookPage },
-        { title: 'ספר טלפונים', component: PhonebookPage },
-        { title: 'נכס לאומי', component: HomePage }
+        {
+          icon: 'information-circle',
+          title: 'על היחידה',
+          component: UnitDetailsPage
+        },
+        { icon: 'call', title: 'ספר טלפונים', component: PhonebookPage },
+        { icon: 'text', title: 'פק"ל כיסים', component: NotebookPage },
+        { icon: 'nuclear', title: 'נכס לאומי', component: HomePage }
       ];
     });
   }

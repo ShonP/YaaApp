@@ -31,6 +31,7 @@ import { NotebookPage } from '../pages/notebook/notebook';
 import { NotebookNewsoldierPage } from '../pages/notebook-newsoldier/notebook-newsoldier';
 import { PhonebookPage } from '../pages/phonebook/phonebook';
 import { CallNumber } from '@ionic-native/call-number';
+import { GalleryPage } from '../pages/gallery/gallery';
 @NgModule({
   declarations: [
     MyApp,
@@ -46,7 +47,8 @@ import { CallNumber } from '@ionic-native/call-number';
     UnitDetailsPage,
     NotebookPage,
     NotebookNewsoldierPage,
-    PhonebookPage
+    PhonebookPage,
+    GalleryPage
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,8 @@ import { CallNumber } from '@ionic-native/call-number';
     UnitDetailsPage,
     NotebookPage,
     NotebookNewsoldierPage,
-    PhonebookPage
+    PhonebookPage,
+    GalleryPage
   ],
   providers: [
     FCM,
