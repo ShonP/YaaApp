@@ -171,6 +171,17 @@ export class GroupDetailsPage implements OnInit, AfterViewInit {
       return false;
     }
   }
+  hasReportByUser(userId) {
+    const repExist = this.currentReports.reports.find(
+      x => x.user._id === userId
+    );
+    if (repExist) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   getTimeDiff(d1, d2) {
     const fd = new Date(d1);
     const sd = new Date(d2);

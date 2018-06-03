@@ -30,7 +30,7 @@
       <ion-icon name="people"></ion-icon>
     </button>
   </ion-fab>
-  <ion-card *ngIf="group.belowGroups.length>0">
+  <ion-card style="max-height: 30vh;overflow: auto;" *ngIf="group.belowGroups.length>0">
     <ion-card-header>
       תת קבוצות
     </ion-card-header>
@@ -39,13 +39,19 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card style="max-height: 30vh;overflow: auto;">
     <ion-card-header>
       חברי הקבוצה
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content *ngIf="!currentReports?.nat">
       <p *ngFor="let i of group.users" (click)='makeAdmin(i)'>
-        <ion-icon name="contact" *ngIf="isAdmin(i._id)"></ion-icon>
+        <ion-icon name="contact" item-left *ngIf="isAdmin(i._id)"></ion-icon>
+        {{i.firstName}} {{i.lastName}}</p>
+    </ion-card-content>
+    <ion-card-content *ngIf="currentReports?.nat">
+      <p *ngFor="let i of group.users" [ngStyle]="hasReportByUser(i._id)?{'color':'green'}:{'color':'rgb(165, 40, 40)'}"
+        (click)='makeAdmin(i)'>
+        <ion-icon name="contact" item-left *ngIf="isAdmin(i._id)"></ion-icon>
         {{i.firstName}} {{i.lastName}}</p>
     </ion-card-content>
   </ion-card>
@@ -58,7 +64,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf='currentReports?.nat'>
+  <ion-card style="max-height: 30vh;overflow: auto;" *ngIf='currentReports?.nat'>
     <ion-card-header>
       דיווחים
     </ion-card-header>
