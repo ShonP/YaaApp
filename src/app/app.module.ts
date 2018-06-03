@@ -32,6 +32,8 @@ import { NotebookNewsoldierPage } from '../pages/notebook-newsoldier/notebook-ne
 import { PhonebookPage } from '../pages/phonebook/phonebook';
 import { CallNumber } from '@ionic-native/call-number';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -55,6 +57,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ComponentsModule,
     HttpClientModule,
     FormsModule,
+    IonicImageViewerModule,
     ReactiveFormsModule,
     IonicModule.forRoot(MyApp, { backButtonText: 'חזור' }),
     StoreModule.forRoot(reducers),
