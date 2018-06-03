@@ -5,7 +5,6 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar hideBackButton>
     <ion-buttons end>
       <button ion-button (click)="back()">
@@ -15,7 +14,6 @@
     </ion-buttons>
     <ion-title>{{group?.name}}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -44,15 +42,26 @@
       חברי הקבוצה
     </ion-card-header>
     <ion-card-content *ngIf="!currentReports?.nat">
-      <p *ngFor="let i of group.users" (click)='makeAdmin(i)'>
-        <ion-icon name="contact" item-left *ngIf="isAdmin(i._id)"></ion-icon>
-        {{i.firstName}} {{i.lastName}}</p>
+      <ion-list>
+        <ion-item *ngFor="let i of group.users">
+          <ion-label (click)='makeAdmin(i)'>
+            {{i.firstName}} {{i.lastName}}
+          </ion-label>
+          <ion-icon name="contact" item-start *ngIf="isAdmin(i._id)"></ion-icon>
+          <ion-icon name="md-close" item-end *ngIf="isAdmin(user._id)" (click)='remove(i)'></ion-icon>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
     <ion-card-content *ngIf="currentReports?.nat">
-      <p *ngFor="let i of group.users" [ngStyle]="hasReportByUser(i._id)?{'color':'green'}:{'color':'rgb(165, 40, 40)'}"
-        (click)='makeAdmin(i)'>
-        <ion-icon name="contact" item-left *ngIf="isAdmin(i._id)"></ion-icon>
-        {{i.firstName}} {{i.lastName}}</p>
+      <ion-list>
+        <ion-item *ngFor="let i of group.users">
+          <ion-label [ngStyle]="hasReportByUser(i._id)?{'color':'green'}:{'color':'rgb(165, 40, 40)'}" (click)='makeAdmin(i)'>
+            {{i.firstName}} {{i.lastName}}
+          </ion-label>
+          <ion-icon name="contact" item-start *ngIf="isAdmin(i._id)"></ion-icon>
+          <ion-icon name="md-close" item-end *ngIf="isAdmin(user._id)" (click)='remove(i)'></ion-icon>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
   <ion-card [ngStyle]="!currentReports?.nat?{'display':'none'}:null">

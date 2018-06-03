@@ -157,6 +157,30 @@ export class GroupDetailsPage implements OnInit, AfterViewInit {
     }
     return false;
   }
+  remove(user) {
+    let confirm = this.alrtController.create({
+      title: 'האם אתה בטוח?',
+      message: `להוציא את ${user.firstName} ${user.lastName} מהקבוצה`,
+      buttons: [
+        {
+          text: 'בטל',
+          handler: () => {}
+        },
+        {
+          text: 'אישור',
+          handler: () => {
+            this._store.dispatch(
+              new GroupActions.RemoveUser({
+                groupId: this.group._id,
+                userId: user._id
+              })
+            );
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
   hasReport() {
     const userExist = this.group.users.find(x => x._id === this.user._id);
     if (!userExist) {

@@ -16,7 +16,7 @@
           <ion-item>
             <ion-input type="password" text-right placeholder="סיסמא" name="password" [(ngModel)]="loginCredentials.password" required></ion-input>
           </ion-item>
-          <ion-label style="color:red">{{error}}</ion-label>
+          <ion-label style="color:red" text-wrap>{{error}}</ion-label>
         </ion-list>
       </ion-col>
     </ion-row>
@@ -44,14 +44,13 @@
           <ion-item>
             <ion-input type="text" text-right placeholder="שם משפחה" name="lastName" [(ngModel)]="registerCredentials.lastName" required></ion-input>
           </ion-item>
-          <ion-label style="color:red">{{error}}</ion-label>
+          <ion-label text-wrap style="color:red" *ngIf="registerValidation()!==true">{{registerValidation()}}</ion-label>
         </ion-list>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="signup-col">
-        <button ion-button class="submit-btn" full type="submit" [disabled]="registerCredentials.password===''||registerCredentials.userName===''||registerCredentials.firstName===''||registerCredentials.lastName===''"
-          (click)="register()">הרשם</button>
+        <button ion-button class="submit-btn" full type="submit" [disabled]="registerValidation()!==true" (click)="register()">הרשם</button>
         <button ion-button class="register-btn" block clear (click)="createAccount()">משתמש קיים? התחבר</button>
       </ion-col>
     </ion-row>

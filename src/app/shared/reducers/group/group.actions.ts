@@ -12,8 +12,13 @@ export const ACTIVE_NATIONAL = 'ACTIVE_NATIONAL';
 export const POST_REPORT = 'POST_REPORT';
 export const ADD_REPORT = 'ADD_REPORT';
 export const MAKE_ADMIN = 'MAKE_ADMIN';
+export const REMOVE_USER = 'REMOVE_USER';
 export class ActiveNational implements Action {
   readonly type = ACTIVE_NATIONAL;
+  constructor(public payload) {}
+}
+export class RemoveUser implements Action {
+  readonly type = REMOVE_USER;
   constructor(public payload) {}
 }
 export class MakeAdmin implements Action {
@@ -67,6 +72,7 @@ export class CreateGroup implements Action {
 }
 
 export type GroupActions =
+  | RemoveUser
   | PostReport
   | AddReport
   | ActiveNational

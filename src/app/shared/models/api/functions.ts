@@ -10,5 +10,6 @@ export enum functions {
   findGroups = 'findGroups',
   joinGroup = 'joinGroup',
   respondRequest = 'respondRequest',
-  makeAdmin = 'makeAdmin'
+  makeAdmin = 'makeAdmin',
+  removeUserFromGroup = 'removeUserFromGroup'
 }

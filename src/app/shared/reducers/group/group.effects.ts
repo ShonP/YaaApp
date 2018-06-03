@@ -23,6 +23,20 @@ export class GroupEffects {
         });
     });
   @Effect()
+  removeUserFromGroup = this.actions$
+    .ofType(GroupActions.REMOVE_USER)
+    .switchMap((action: GroupActions.RemoveUser) => {
+      return this._httpService
+        .post(
+          controllers.national,
+          functions.removeUserFromGroup,
+          action.payload
+        )
+        .map(x => {
+          return new GroupActions.FetchGroup(action.payload.groupId);
+        });
+    });
+  @Effect()
   activeNational = this.actions$
     .ofType(GroupActions.ACTIVE_NATIONAL)
     .switchMap((action: GroupActions.ActiveNational) => {
