@@ -3,7 +3,7 @@ import {
   IonicPage,
   NavController,
   NavParams,
-  ViewController
+  ViewController,
 } from 'ionic-angular';
 
 /**
@@ -23,13 +23,13 @@ export class GalleryPage implements OnInit {
   constructor(
     private viewCtrl: ViewController,
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
   ) {}
   ngOnInit() {
     this.images = this.navParams.get('images');
     this.name = this.navParams.get('name');
   }
   dismiss() {
-    this.viewCtrl.dismiss();
+    this.navCtrl.pop();
   }
 }

@@ -19,8 +19,29 @@ import { GalleryPage } from '../gallery/gallery';
   templateUrl: 'notebook.html'
 })
 export class NotebookPage {
-  quality = ['quality/1.jpg', 'quality/2.jpg', 'quality/3.jpg','quality/4.jpg','quality/5.jpg','quality/6.jpg','quality/7.jpg','quality/8.jpg','quality/9.jpg'];
-  secure = ['secure/1.jpg', 'secure/2.jpg', 'secure/3.jpg','secure/4.jpg','secure/5.jpg','secure/6.jpg','secure/7.jpg','secure/8.jpg','secure/9.jpg','secure/10.jpg'];
+  quality = [
+    'quality/1.jpg',
+    'quality/2.jpg',
+    'quality/3.jpg',
+    'quality/4.jpg',
+    'quality/5.jpg',
+    'quality/6.jpg',
+    'quality/7.jpg',
+    'quality/8.jpg',
+    'quality/9.jpg'
+  ];
+  secure = [
+    'secure/1.jpg',
+    'secure/2.jpg',
+    'secure/3.jpg',
+    'secure/4.jpg',
+    'secure/5.jpg',
+    'secure/6.jpg',
+    'secure/7.jpg',
+    'secure/8.jpg',
+    'secure/9.jpg',
+    'secure/10.jpg'
+  ];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -31,17 +52,15 @@ export class NotebookPage {
     modal.present();
   }
   openSecure() {
-    let modal = this._modalCtr.create(GalleryPage, {
+    this.navCtrl.push(GalleryPage, {
       images: this.secure,
       name: 'פנקס בטחון'
     });
-    modal.present();
   }
   openQuality() {
-    let modal = this._modalCtr.create(GalleryPage, {
+    let modal = this.navCtrl.push(GalleryPage, {
       images: this.quality,
       name: 'פנקס איכות'
     });
-    modal.present();
   }
 }

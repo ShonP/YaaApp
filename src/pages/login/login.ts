@@ -10,6 +10,7 @@ import {
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app/shared';
 import * as authActions from '../../app/shared/reducers/auth/auth.actions';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -27,6 +28,7 @@ export class LoginPage implements OnInit {
   authenticated = false;
   error = '';
   constructor(
+    private storage: Storage,
     private nav: NavController,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
@@ -35,6 +37,16 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     this.store.select('auth').subscribe(res => {
       this.error = res.error;
+    });
+    this.storage.get('userName').then(res => {
+      if (res) {
+        this.loginCredentials.userName = res;
+      }
+    });
+    this.storage.get('password').then(res => {
+      if (res) {
+        this.loginCredentials.password = res;
+      }
     });
   }
   login() {

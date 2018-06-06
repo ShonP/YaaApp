@@ -9,6 +9,7 @@ import { fromPromise } from 'rxjs/observable/fromPromise';
 import { HttpService } from '../../services';
 import * as AuthActions from './auth.actions';
 import { controllers, functions } from '../../models';
+import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class AuthEffects {
@@ -19,6 +20,8 @@ export class AuthEffects {
       return this._httpService
         .post(controllers.authentication, functions.signUp, action.payload)
         .map(x => {
+          this.storage.set('userName', action.payload.userName);
+          this.storage.set('password', action.payload.password);
           return new AuthActions.SetUser(x);
         });
     });
@@ -31,8 +34,16 @@ export class AuthEffects {
         .map((x: any) => {
           if (x === null)
             return new AuthActions.SetError('סיסמא או משתמש אינם נכונים');
-          else return new AuthActions.SetUser(x);
-        }); //implement error
+          else {
+            this.storage.set('userName', action.payload.userName);
+            this.storage.set('password', action.payload.password);
+            return new AuthActions.SetUser(x);
+          }
+        });
     });
-  constructor(private actions$: Actions, private _httpService: HttpService) {}
+  constructor(
+    private storage: Storage,
+    private actions$: Actions,
+    private _httpService: HttpService
+  ) {}
 }

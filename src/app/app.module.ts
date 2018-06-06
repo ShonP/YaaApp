@@ -23,7 +23,7 @@ import { GroupDetailsPage } from '../pages/group-details/group-details';
 import { SearchPage } from '../pages/search/search';
 import { RequestsPage } from '../pages/requests/requests';
 import { CreateGroupPage } from '../pages/create-group/create-group';
-
+import { IonicStorageModule } from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UnitDetailsPage } from '../pages/unit-details/unit-details';
@@ -60,6 +60,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     IonicImageViewerModule,
     ReactiveFormsModule,
     IonicModule.forRoot(MyApp, { backButtonText: 'חזור' }),
+    IonicStorageModule.forRoot(),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects, GroupEffects]),
     true ? StoreDevtoolsModule.instrument() : []
