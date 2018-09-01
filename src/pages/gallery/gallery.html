@@ -20,7 +20,7 @@
 <ion-content style="background-color:white">
   <ion-slides zoom loop pager dir="rtl" class="image-slider" parallax="true" centeredSlides="true" slidesPerView="1">
     <ion-slide *ngFor="let img of images">
-      <div class="swiper-zoom-container">
+      <div class="swiper-zoom-container" style="height:100%">
         <img src="assets/imgs/{{img}}" class="thumb-img" />
       </div>
     </ion-slide>

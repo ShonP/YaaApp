@@ -1,10 +1,13 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { ComponentsModule } from '../components/components.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ZoomAreaModule } from 'ionic2-zoom-area';
+
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './shared/reducers/auth';
@@ -13,7 +16,6 @@ import { reducers, HttpService } from './shared/';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { FCM } from '@ionic-native/fcm';
 import { MyApp } from './app.component';
-
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -56,6 +58,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     BrowserModule,
     ComponentsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule,
     IonicImageViewerModule,
     ReactiveFormsModule,
@@ -63,6 +66,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     IonicStorageModule.forRoot(),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects, GroupEffects]),
+    ZoomAreaModule.forRoot(),
     true ? StoreDevtoolsModule.instrument() : []
   ],
   bootstrap: [IonicApp],
