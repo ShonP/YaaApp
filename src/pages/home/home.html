@@ -3,23 +3,97 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>נכס לאומי</ion-title>
+    <ion-title>עמוד הבית</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-  <ion-fab bottom left>
-    <button (click)="presentModal()" ion-fab mini>
-      <ion-icon name="add"></ion-icon>
-    </button>
-  </ion-fab>
-  <ion-fab bottom right>
-    <button (click)="presentSearch()" ion-fab mini>
-      <ion-icon name="search"></ion-icon>
-    </button>
-  </ion-fab>
-  <ion-list>
-    <button (click)="EnterGroup(i)" ion-item *ngFor="let i of groups">
-      {{i.name}}
-    </button>
-  </ion-list>
+
+<ion-content class="card-background-page">
+  <div class="container">
+    <div id="timer">
+      <div class="seconds">
+        <div class="numbers">{{ seconds }}</div>
+        שניות
+      </div>
+      <div class="minutes">
+        <div class="numbers">{{ minutes }}</div>
+        דקות
+      </div>
+      <div class="hours">
+        <div class="numbers">{{ hours }}</div>
+        שעות
+      </div>
+      <div class="days">
+        <div class="numbers">{{ days }}</div>
+        ימים
+      </div>
+    </div>
+  </div>
+  <div class="yaa70"></div>
+
+  <ion-card [navPush]="wikiPage">
+    <div class="image-container">
+      <img class="image" src="assets/imgs/yaaenter.jpg" />
+    </div>
+    <div class="card-wrapper">
+      <div class="card-title">יחידת האחזקה האווירית 22</div>
+      <div class="card-subtitle">מידע על היחידה</div>
+    </div>
+  </ion-card>
+
+  <ion-card>
+    <a
+      class="link-wrapper"
+      href="https://www.google.com/maps/place/%D7%9E%D7%97%D7%A0%D7%94+%D7%AA%D7%9C+%D7%A0%D7%95%D7%A3%E2%80%AD/@31.824535,34.8178014,14z/data=!4m8!1m2!2m1!1z16rXnCDXoNeV16M!3m4!1s0x0:0x49def12f38fa63a3!8m2!3d31.8222801!4d34.8194987"
+    >
+      <div class="image-container">
+        <img class="image" src="assets/imgs/gm.jpeg" />
+      </div>
+      <div class="card-wrapper">
+        <div class="card-title">איך להגיע?</div>
+        <div class="card-subtitle">נווט אל היחידה</div>
+      </div>
+    </a>
+  </ion-card>
+
+  <ion-card [navPush]="timesPage">
+    <div class="image-container">
+      <img class="image" src="assets/imgs/Clock-Calendar.png" />
+    </div>
+    <div class="card-wrapper">
+      <div class="card-title">לו"ז ערב 70 שנה ליחידה</div>
+      <div class="card-subtitle">מידע על לוח הזמנים</div>
+    </div>
+  </ion-card>
+  <ion-card [navPush]="galleryPage">
+    <div class="image-container">
+      <img class="image" src="assets/imgs/tech.jpg" />
+    </div>
+    <div class="card-wrapper">
+      <div class="card-title">גלריית תמונות</div>
+    </div>
+  </ion-card>
+  <ion-card>
+    <a class="link-wrapper" href="http://m.iaf.org.il/2392-50101-he/IAF.aspx">
+      <div class="image-container">
+        <img class="image" src="assets/imgs/article.jpg" />
+      </div>
+      <div class="card-wrapper">
+        <div class="card-title">כתבות על היחידה</div>
+      </div>
+    </a>
+  </ion-card>
+  <ion-card>
+    <a
+      class="link-wrapper"
+      href="https://www.facebook.com/groups/262039597313100/"
+    >
+      <div class="image-container">
+        <img class="image" src="assets/imgs/facebook.png" />
+      </div>
+      <div class="card-wrapper">
+        <div class="card-title">פייסבוק</div>
+        <div class="card-subtitle">הצטרפו לפייסבוק שלנו</div>
+      </div>
+    </a>
+  </ion-card>
 </ion-content>

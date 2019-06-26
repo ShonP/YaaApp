@@ -1,54 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController, ModalController, Platform } from 'ionic-angular';
-import { CreateGroupPage } from '../create-group/create-group';
-import { SearchPage } from '../search/search';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../app/shared/reducers/app.reducers';
-import * as GroupActions from '../../app/shared/reducers/group/group.actions';
-import { GroupDetailsPage } from '../group-details/group-details';
-import { FCM } from '@ionic-native/fcm';
+import { Component, OnInit } from "@angular/core";
+import { NavController } from "ionic-angular";
+import { UnitDetailsPage } from "../unit-details/unit-details";
+import { UnitGalleryPage } from "../unit-gallery/unit-gallery";
+import { TimesPage } from "../times/times";
+import { GalleryPage } from "../gallery/gallery";
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: "page-home",
+  templateUrl: "home.html"
 })
 export class HomePage implements OnInit {
-  constructor(
-    public platform: Platform,
-    public navCtrl: NavController,
-    public modalCtrl: ModalController,
-    private _store: Store<AppState>,
-    private fcm: FCM
-  ) {}
-  currentUser: any = null;
-  groups = [];
+  yaa70Years = new Date(2019, 6, 10,8).getTime();
+  wikiPage = UnitDetailsPage;
+  thumimPage = UnitGalleryPage;
+  timesPage = TimesPage;
+  galleryPage=GalleryPage;
+  days = 0;
+  hours = 0;
+  minutes = 0;
+  seconds = 0;
+  constructor(public navCtrl: NavController) {}
   ngOnInit() {
-    this._store.select('auth').subscribe(res => {
-      this._store.dispatch(new GroupActions.FetchGroups(res.user._id));
-      this.currentUser = res.user;
-    });
-    this._store.select('group').subscribe(res => {
-      this.groups = res.userGroups;
-      if (this.groups.length > 0 && this.platform.is('android')) {
-        this.groups.forEach(ele => {
-          this.fcm.subscribeToTopic(ele._id);
-        });
-      }
-    });
-  }
-  EnterGroup(group) {
-    this._store.dispatch(new GroupActions.FetchGroup(group._id));
-    this.navCtrl.push(
-      GroupDetailsPage,
-      {},
-      { animate: true, direction: 'back' }
-    );
-  }
-  presentModal() {
-    let modal = this.modalCtrl.create(CreateGroupPage);
-    modal.present();
-  }
-  presentSearch() {
-    let modal = this.modalCtrl.create(SearchPage, { user: this.currentUser });
-    modal.present();
+    // countdown
+    setInterval(() => {
+      // get today's date
+      const today = new Date().getTime();
+
+      // get the difference
+      const diff = this.yaa70Years - today;
+
+      // math
+      this.days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      this.hours = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      this.minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      this.seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    }, 1000);
   }
 }

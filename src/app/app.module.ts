@@ -7,7 +7,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { ComponentsModule } from '../components/components.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ZoomAreaModule } from 'ionic2-zoom-area';
-
+import { Deeplinks } from '@ionic-native/deeplinks';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './shared/reducers/auth';
@@ -35,7 +35,8 @@ import { PhonebookPage } from '../pages/phonebook/phonebook';
 import { CallNumber } from '@ionic-native/call-number';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
-
+import { UnitGalleryPage } from '../pages/unit-gallery/unit-gallery';
+import { TimesPage } from '../pages/times/times';
 @NgModule({
   declarations: [
     MyApp,
@@ -52,7 +53,9 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     NotebookPage,
     NotebookNewsoldierPage,
     PhonebookPage,
-    GalleryPage
+    GalleryPage,
+    UnitGalleryPage,
+    TimesPage
   ],
   imports: [
     BrowserModule,
@@ -85,7 +88,9 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     NotebookPage,
     NotebookNewsoldierPage,
     PhonebookPage,
-    GalleryPage
+    GalleryPage,
+    UnitGalleryPage,
+    TimesPage
   ],
   providers: [
     FCM,
@@ -93,6 +98,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     HttpService,
     StatusBar,
     SplashScreen,
+    Deeplinks,
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
