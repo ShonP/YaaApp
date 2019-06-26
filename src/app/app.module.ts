@@ -9,9 +9,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ZoomAreaModule } from 'ionic2-zoom-area';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { AuthEffects } from './shared/reducers/auth';
-import { GroupEffects } from './shared/reducers/group/group.effects';
 import { reducers, HttpService } from './shared/';
 import { FCM } from '@ionic-native/fcm';
 import { MyApp } from './app.component';
@@ -67,7 +64,6 @@ import { TimesPage } from '../pages/times/times';
     IonicModule.forRoot(MyApp, { backButtonText: 'חזור' }),
     IonicStorageModule.forRoot(),
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([AuthEffects, GroupEffects]),
     ZoomAreaModule.forRoot(),
     true ? StoreDevtoolsModule.instrument() : []
   ],
