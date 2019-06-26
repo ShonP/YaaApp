@@ -5,7 +5,6 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/catch';
-import { fromPromise } from 'rxjs/observable/fromPromise';
 import { HttpService } from '../../services';
 import * as GroupActions from './group.actions';
 import { controllers, functions } from '../../models';

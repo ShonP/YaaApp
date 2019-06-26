@@ -13,7 +13,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './shared/reducers/auth';
 import { GroupEffects } from './shared/reducers/group/group.effects';
 import { reducers, HttpService } from './shared/';
-import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { FCM } from '@ionic-native/fcm';
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
@@ -99,7 +98,6 @@ import { TimesPage } from '../pages/times/times';
     StatusBar,
     SplashScreen,
     Deeplinks,
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
