@@ -1,19 +1,22 @@
-import { Component, OnInit } from "@angular/core";
-import { NavController } from "ionic-angular";
-import { UnitDetailsPage } from "../unit-details/unit-details";
-import { UnitGalleryPage } from "../unit-gallery/unit-gallery";
-import { TimesPage } from "../times/times";
-import { GalleryPage } from "../gallery/gallery";
+import { Component, OnInit } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { UnitDetailsPage } from '../unit-details/unit-details';
+import { UnitGalleryPage } from '../unit-gallery/unit-gallery';
+import { TimesPage } from '../times/times';
+import { GalleryPage } from '../gallery/gallery';
+import { StoriesPage } from '../stories/stories';
+
 @Component({
-  selector: "page-home",
-  templateUrl: "home.html"
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
-  yaa70Years = new Date(2019, 6, 10,8).getTime();
+  yaa70Years = new Date(2019, 6, 10, 8).getTime();
   wikiPage = UnitDetailsPage;
   thumimPage = UnitGalleryPage;
   timesPage = TimesPage;
-  galleryPage=GalleryPage;
+  galleryPage = GalleryPage;
+  storiesPage = StoriesPage;
   days = 0;
   hours = 0;
   minutes = 0;

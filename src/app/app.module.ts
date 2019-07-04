@@ -33,6 +33,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { UnitGalleryPage } from '../pages/unit-gallery/unit-gallery';
 import { TimesPage } from '../pages/times/times';
+import { StoriesPage } from '../pages/stories/stories';
 @NgModule({
   declarations: [
     MyApp,
@@ -51,7 +52,8 @@ import { TimesPage } from '../pages/times/times';
     PhonebookPage,
     GalleryPage,
     UnitGalleryPage,
-    TimesPage
+    TimesPage,
+    StoriesPage
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ import { TimesPage } from '../pages/times/times';
     PhonebookPage,
     GalleryPage,
     UnitGalleryPage,
-    TimesPage
+    TimesPage,
+    StoriesPage
   ],
   providers: [
     FCM,
