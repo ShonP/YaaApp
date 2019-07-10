@@ -11,7 +11,7 @@ import { StoriesPage } from '../stories/stories';
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
-  yaa70Years = new Date(2019, 6, 10, 8).getTime();
+  yaa70Years = new Date(2019, 6, 10, 18).getTime();
   wikiPage = UnitDetailsPage;
   thumimPage = UnitGalleryPage;
   timesPage = TimesPage;
