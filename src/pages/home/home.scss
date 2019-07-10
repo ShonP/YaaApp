@@ -52,7 +52,7 @@ page-home {
     width: 100%;
 
 
-    @media (min-width:800px) {
+    @media (min-height:700px) {
       height:550px;
     }
 
@@ -86,7 +86,7 @@ page-home {
     padding: 12px;
     width: 100%;
 
-    @media (min-width:800px) {
+    @media (min-height:700px) {
       height:550px;
     }
   }
