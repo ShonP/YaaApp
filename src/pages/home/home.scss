@@ -52,7 +52,7 @@ page-home {
     width: 100%;
 
 
-    @media screen and (min-width:400px) {
+    @media screen and (min-width:450px) {
       height:550px;
     }
 
@@ -76,7 +76,7 @@ page-home {
     margin: auto;
     display: flex;
     overflow: hidden;
-    height: 240px;
+    height: 260px;
     justify-content: center;
     align-items: center;
     background-image: url('../../assets//imgs/logo-70.jpeg');
@@ -86,7 +86,7 @@ page-home {
     padding: 12px;
     width: 100%;
 
-    @media screen and (min-width:400px) {
+    @media screen and (min-width:450px) {
       height:550px;
     }
   }
