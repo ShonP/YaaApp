@@ -1,21 +1,33 @@
 <ion-menu id="appMenu" [content]="content">
-    <ion-header>
-        <ion-toolbar>
-            <ion-title>יא"א 22</ion-title>
-        </ion-toolbar>
-    </ion-header>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>יא"א 22</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-    <ion-content>
-        <ion-list>
-            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-                <ion-icon item-end [name]=p.icon></ion-icon>
-                {{p.title}}
-            </button>
-        </ion-list>
-    </ion-content>
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon item-end [name]="p.icon"></ion-icon>
+        {{ p.title }}
+      </button>
+      <button menuClose ion-item (click)="openNewSoldier()">
+        <ion-icon item-end name="person"></ion-icon>
+        פנקס לחייל חדש
+      </button>
+      <button menuClose ion-item (click)="openSecure()">
+        <ion-icon item-end name="settings"></ion-icon>
+        פנקס בטחון
+      </button>
+      <button menuClose ion-item (click)="openQuality()">
+        <ion-icon item-end name="color-wand"></ion-icon>
+        פנקס איכות לטכנאי
+      </button>
+    </ion-list>
+  </ion-content>
 </ion-menu>
 
 <ion-nav #content [root]="rootPage"></ion-nav>
 <div *ngIf="loading" class="loadDiv">
-    <loader></loader>
+  <loader></loader>
 </div>

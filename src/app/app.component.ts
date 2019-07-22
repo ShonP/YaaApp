@@ -1,5 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Platform, AlertController, Nav, ModalController } from 'ionic-angular';
+import {
+  Platform,
+  AlertController,
+  Nav,
+  ModalController,
+  NavController
+} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 // import { FCM } from '@ionic-native/fcm';
@@ -11,6 +17,8 @@ import { UnitDetailsPage } from '../pages/unit-details/unit-details';
 import { NotebookPage } from '../pages/notebook/notebook';
 import { NotebookNewsoldierPage } from '../pages/notebook-newsoldier/notebook-newsoldier';
 import { PhonebookPage } from '../pages/phonebook/phonebook';
+import { GalleryPage } from '../pages/gallery/gallery';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -45,15 +53,14 @@ export class MyApp implements OnInit {
           title: 'על היחידה',
           component: UnitDetailsPage
         },
-        { icon: 'call', title: 'ספר טלפונים', component: PhonebookPage },
-        { icon: 'text', title: 'פק"ל כיסים', component: NotebookPage }
+        { icon: 'call', title: 'ספר טלפונים', component: PhonebookPage }
       ];
     });
   }
 
   ngOnInit() {
     this.rootPage = HomePage;
-    if (window.location.hash==='#/new-soldier') {
+    if (window.location.hash === '#/new-soldier') {
       let modal = this.modalCtrl.create(NotebookNewsoldierPage);
       modal.present();
     }
@@ -88,5 +95,45 @@ export class MyApp implements OnInit {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  quality = [
+    'quality/1.jpg',
+    'quality/2.jpg',
+    'quality/3.jpg',
+    'quality/4.jpg',
+    'quality/5.jpg',
+    'quality/6.jpg',
+    'quality/7.jpg',
+    'quality/8.jpg',
+    'quality/9.jpg'
+  ];
+  secure = [
+    'secure/1.jpg',
+    'secure/2.jpg',
+    'secure/3.jpg',
+    'secure/4.jpg',
+    'secure/5.jpg',
+    'secure/6.jpg',
+    'secure/7.jpg',
+    'secure/8.jpg',
+    'secure/9.jpg',
+    'secure/10.jpg'
+  ];
+
+  openNewSoldier() {
+    let modal = this.modalCtrl.create(NotebookNewsoldierPage);
+    modal.present();
+  }
+  openSecure() {
+    this.nav.push(GalleryPage, {
+      images: this.secure,
+      name: 'פנקס בטחון'
+    });
+  }
+  openQuality() {
+    let modal = this.nav.push(GalleryPage, {
+      images: this.quality,
+      name: 'פנקס איכות'
+    });
   }
 }

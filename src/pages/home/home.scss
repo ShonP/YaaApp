@@ -50,6 +50,12 @@ page-home {
     background-size: cover;
     padding: 12px;
     width: 100%;
+
+
+    @media screen and (min-width:500px) {
+      height:550px;
+    }
+
   }
 
   .image {
@@ -79,6 +85,10 @@ page-home {
     background-size: cover;
     padding: 12px;
     width: 100%;
+
+    @media screen and (min-width:500px) {
+      height:550px;
+    }
   }
   h1 {
     font-family: $font;
