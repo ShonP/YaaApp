@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Platform, AlertController, Nav, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { FCM } from '@ionic-native/fcm';
+// import { FCM } from '@ionic-native/fcm';
 import { LoginPage } from '../pages/login/login';
 import { Store } from '@ngrx/store';
 import { AppState } from './shared/reducers/app.reducers';
@@ -22,7 +22,7 @@ export class MyApp implements OnInit {
 
   constructor(
     private alrt: AlertController,
-    private fcm: FCM,
+    // private fcm: FCM,
     private platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
@@ -65,25 +65,25 @@ export class MyApp implements OnInit {
       }
     });
   }
-  fcmThings() {
-    if (this.platform.is('android')) {
-      this.fcm.onNotification().subscribe(data => {
-        if (data.wasTapped) {
-          this.alrt
-            .create({
-              message: data.message
-            })
-            .present();
-        } else {
-          this.alrt
-            .create({
-              message: data.message
-            })
-            .present();
-        }
-      });
-    }
-  }
+  // fcmThings() {
+  //   if (this.platform.is('android')) {
+  //     this.fcm.onNotification().subscribe(data => {
+  //       if (data.wasTapped) {
+  //         this.alrt
+  //           .create({
+  //             message: data.message
+  //           })
+  //           .present();
+  //       } else {
+  //         this.alrt
+  //           .create({
+  //             message: data.message
+  //           })
+  //           .present();
+  //       }
+  //     });
+  //   }
+  // }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario

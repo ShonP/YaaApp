@@ -10,7 +10,7 @@ import { ZoomAreaModule } from 'ionic2-zoom-area';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { StoreModule } from '@ngrx/store';
 import { reducers, HttpService } from './shared/';
-import { FCM } from '@ionic-native/fcm';
+// import { FCM } from '@ionic-native/fcm';
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -91,7 +91,7 @@ import { StoriesPage } from '../pages/stories/stories';
     StoriesPage
   ],
   providers: [
-    FCM,
+    // FCM,
     CallNumber,
     HttpService,
     StatusBar,

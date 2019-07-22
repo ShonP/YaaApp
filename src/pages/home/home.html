@@ -8,26 +8,6 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-  <div class="container">
-    <div id="timer">
-      <div class="seconds">
-        <div class="numbers">{{ seconds }}</div>
-        שניות
-      </div>
-      <div class="minutes">
-        <div class="numbers">{{ minutes }}</div>
-        דקות
-      </div>
-      <div class="hours">
-        <div class="numbers">{{ hours }}</div>
-        שעות
-      </div>
-      <div class="days">
-        <div class="numbers">{{ days }}</div>
-        ימים
-      </div>
-    </div>
-  </div>
   <div class="yaa70"></div>
 
   <ion-card [navPush]="wikiPage">
@@ -53,16 +33,6 @@
         <div class="card-subtitle">נווט אל היחידה</div>
       </div>
     </a>
-  </ion-card>
-
-  <ion-card [navPush]="timesPage">
-    <div class="image-container">
-      <img class="image" src="assets/imgs/Clock-Calendar.png" />
-    </div>
-    <div class="card-wrapper">
-      <div class="card-title">לו"ז ערב 70 שנה ליחידה</div>
-      <div class="card-subtitle">מידע על לוח הזמנים</div>
-    </div>
   </ion-card>
   <ion-card [navPush]="thumimPage">
     <div class="image-container">
